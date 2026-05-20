@@ -33,7 +33,7 @@ export function Hero() {
               No need to remodel the whole kitchen.
             </h1>
             <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-md">
-              Please keep in mind, this package WILL NOT apply to all homes.
+              Please keep in mind, this package DOES NOT apply to all homes.
             </p>
 
             {/* Stats */}
