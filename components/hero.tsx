@@ -37,7 +37,7 @@ export function Hero() {
                 className="block text-[2.5rem] sm:text-[3.25rem] md:text-[4rem] lg:text-[4.5rem] font-medium leading-[1.05] tracking-tight text-white/90 mt-2 drop-shadow-lg"
                 style={{ textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}
               >
-                No need to remodel the whole kitchen.
+                No need to rip out the whole kitchen.
               </span>
             </h1>
             <div className="mt-10 border-l-2 border-stone-400/50 pl-5 max-w-md">
