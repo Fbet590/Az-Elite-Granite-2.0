@@ -227,14 +227,11 @@ export function MultiStepForm() {
       
       {/* Header with headline */}
       <div className="relative border-b border-stone-100 px-6 py-6 bg-stone-50">
-        <h2 className="text-2xl md:text-2xl font-bold text-stone-900 text-center mb-2 tracking-wide">
+        <h2 className="text-[1.875rem] md:text-[1.875rem] font-bold text-stone-900 text-center mb-2 tracking-wide">
           Get our $4500 Quartz Package
         </h2>
-        <p className="text-stone-700 text-center text-base md:text-base mb-1">
+        <p className="text-stone-700 text-center text-xl md:text-xl">
           Flat Pricing. Most homes qualify for this package! Lets find out!
-        </p>
-        <p className="text-stone-500 text-center text-sm md:text-sm tracking-wide">
-          Fill out our quick form below!
         </p>
       </div>
       
@@ -269,7 +266,7 @@ export function MultiStepForm() {
           {step === 1 && (
             <div className="space-y-5">
               <div>
-                <h3 className="font-serif text-xl md:text-2xl font-medium text-stone-900 mb-2">
+                <h3 className="font-serif text-[1.625rem] md:text-2xl font-medium text-stone-900 mb-2">
                   What space needs countertops?
                 </h3>
                 <p className="text-stone-500 text-sm">
