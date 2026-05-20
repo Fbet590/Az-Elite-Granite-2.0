@@ -227,7 +227,7 @@ export function MultiStepForm() {
       
       {/* Header with headline */}
       <div className="relative border-b border-stone-100 px-6 py-6 bg-stone-50">
-        <h2 className="text-2xl md:text-2xl font-medium text-stone-900 text-center mb-2 tracking-wide">
+        <h2 className="text-2xl md:text-2xl font-bold text-stone-900 text-center mb-2 tracking-wide">
           Get our $4500 Quartz Package
         </h2>
         <p className="text-stone-700 text-center text-base md:text-base mb-1">
