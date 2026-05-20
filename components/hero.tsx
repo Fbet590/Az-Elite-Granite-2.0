@@ -23,23 +23,26 @@ export function Hero() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Left Content */}
           <div className="max-w-xl pt-8 lg:pt-16">
-            <p className="text-sm uppercase tracking-[0.2em] text-accent font-medium mb-6">
+            <p className="text-sm uppercase tracking-[0.2em] text-accent font-medium mb-6 bg-background/80 backdrop-blur-sm px-3 py-1.5 rounded-md w-fit">
               Arizona&apos;s Premier Countertop Experts
             </p>
-            <h1 className="text-[2.5rem] sm:text-[3.25rem] md:text-[4rem] lg:text-[4.5rem] font-bold leading-[1.1] tracking-tight text-foreground text-balance">
-              $4,500. New Quartz Countertops.
+            <h1 className="text-balance">
+              <span className="block text-[2.75rem] sm:text-[3.25rem] md:text-[4rem] lg:text-[4.5rem] font-bold leading-[1.1] tracking-tight text-foreground bg-background/80 backdrop-blur-sm px-4 py-2 rounded-lg w-fit">
+                $4,500. New Quartz Countertops.
+              </span>
               <br />
-              <br />
-              No need to remodel the whole kitchen.
+              <span className="block text-[2.5rem] sm:text-[3.25rem] md:text-[4rem] lg:text-[4.5rem] font-semibold leading-[1.1] tracking-tight text-foreground bg-background/80 backdrop-blur-sm px-4 py-2 rounded-lg w-fit">
+                No need to remodel the whole kitchen.
+              </span>
             </h1>
-            <div className="mt-8 bg-accent/15 border-l-4 border-accent px-5 py-4 rounded-r-lg max-w-md">
+            <div className="mt-8 bg-background/90 backdrop-blur-sm border-l-4 border-accent px-5 py-4 rounded-r-lg max-w-md shadow-md">
               <p className="text-base font-semibold text-foreground leading-relaxed">
                 Pricing applies to most standard kitchens. Final quote confirmed at your free in-home visit!
               </p>
             </div>
 
             {/* Stats */}
-            <div className="mt-12 grid grid-cols-3 gap-8 border-t border-border/50 pt-8">
+            <div className="mt-12 grid grid-cols-3 gap-8 bg-background/80 backdrop-blur-sm rounded-lg px-4 py-6">
               <div>
                 <p className="text-3xl md:text-4xl font-bold text-foreground">20+</p>
                 <p className="text-sm text-muted-foreground mt-1">Years Experience</p>
