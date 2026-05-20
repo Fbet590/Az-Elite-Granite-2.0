@@ -28,7 +28,7 @@ export function Hero() {
             </p>
             <h1 className="text-balance">
               <span 
-                className="block text-[3rem] sm:text-[3.5rem] md:text-[4.25rem] lg:text-[4.75rem] font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
+                className="block text-[3.25rem] sm:text-[3.75rem] md:text-[4.5rem] lg:text-[5rem] font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
                 style={{ textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}
               >
                 $4,500. New Quartz Countertops.
@@ -58,7 +58,7 @@ export function Hero() {
                 >
                   20+
                 </p>
-                <p className="text-sm text-stone-400 mt-1 font-light tracking-wide">Years Experience</p>
+                <p className="text-sm mt-1 font-light tracking-wide" style={{ color: '#eee9e9' }}>Years Experience</p>
               </div>
               <div>
                 <p 
@@ -67,7 +67,7 @@ export function Hero() {
                 >
                   5K+
                 </p>
-                <p className="text-sm text-stone-400 mt-1 font-light tracking-wide">Projects Completed</p>
+                <p className="text-sm mt-1 font-light tracking-wide" style={{ color: '#f0ecec' }}>Projects Completed</p>
               </div>
               <div>
                 <p 
@@ -76,7 +76,7 @@ export function Hero() {
                 >
                   4.9
                 </p>
-                <p className="text-sm text-stone-400 mt-1 font-light tracking-wide">Star Rating</p>
+                <p className="text-sm mt-1 font-light tracking-wide" style={{ color: '#f2ecec' }}>Star Rating</p>
               </div>
             </div>
 
