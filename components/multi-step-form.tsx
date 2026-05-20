@@ -160,11 +160,11 @@ export function MultiStepForm() {
       type="button"
       onClick={onClick}
       className={cn(
-        "w-full p-5 text-left border rounded-xl transition-all duration-300 transform",
+        "w-full p-5 text-left border-2 rounded-xl transition-all duration-300 transform",
         "hover:scale-[1.02] active:scale-[0.98]",
         selected
-          ? "border-stone-400 bg-stone-100 shadow-md"
-          : "border-stone-200 bg-white hover:border-stone-300 hover:bg-stone-50"
+          ? "border-stone-500 bg-stone-100 shadow-md"
+          : "border-stone-300 bg-white hover:border-stone-400 hover:bg-stone-50"
       )}
     >
       <div className="flex items-center justify-between gap-4">
@@ -204,7 +204,7 @@ export function MultiStepForm() {
 
   if (isComplete) {
     return (
-      <div className="relative bg-white border border-stone-200 rounded-2xl shadow-2xl p-8 md:p-10 text-center">
+      <div className="relative bg-white border-2 border-stone-300 rounded-2xl shadow-2xl p-8 md:p-10 text-center">
         <div className="relative">
           <div className="w-20 h-20 rounded-full bg-stone-100 flex items-center justify-center mx-auto mb-6 animate-bounce-in">
             <Check className="w-10 h-10 text-stone-800" />
@@ -221,7 +221,7 @@ export function MultiStepForm() {
   }
 
   return (
-    <div className="relative bg-white border border-stone-200 rounded-2xl shadow-2xl overflow-hidden">
+    <div className="relative bg-white border-2 border-stone-300 rounded-2xl shadow-2xl overflow-hidden">
       {/* Subtle top accent line */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-stone-300 via-stone-400 to-stone-300" />
       
@@ -320,7 +320,7 @@ export function MultiStepForm() {
                   onChange={(e) => updateField("fullName", e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && canProceed() && nextStep()}
                   placeholder="Enter your full name"
-                  className="w-full px-5 py-4 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:border-stone-400 focus:ring-2 focus:ring-stone-100 text-stone-900 text-lg transition-all duration-200 placeholder:text-stone-400"
+                  className="w-full px-5 py-4 bg-stone-50 border-2 border-stone-300 rounded-xl focus:outline-none focus:border-stone-500 focus:ring-2 focus:ring-stone-200 text-stone-900 text-lg transition-all duration-200 placeholder:text-stone-400"
                   autoFocus
                 />
               </div>
@@ -345,7 +345,7 @@ export function MultiStepForm() {
                   onChange={(e) => updateField("email", e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && canProceed() && nextStep()}
                   placeholder="your@email.com"
-                  className="w-full px-5 py-4 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:border-stone-400 focus:ring-2 focus:ring-stone-100 text-stone-900 text-lg transition-all duration-200 placeholder:text-stone-400"
+                  className="w-full px-5 py-4 bg-stone-50 border-2 border-stone-300 rounded-xl focus:outline-none focus:border-stone-500 focus:ring-2 focus:ring-stone-200 text-stone-900 text-lg transition-all duration-200 placeholder:text-stone-400"
                   autoFocus
                 />
               </div>
@@ -370,7 +370,7 @@ export function MultiStepForm() {
                   onChange={(e) => updateField("phone", e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && canProceed() && handleSubmit()}
                   placeholder="(555) 123-4567"
-                  className="w-full px-5 py-4 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:border-stone-400 focus:ring-2 focus:ring-stone-100 text-stone-900 text-lg transition-all duration-200 placeholder:text-stone-400"
+                  className="w-full px-5 py-4 bg-stone-50 border-2 border-stone-300 rounded-xl focus:outline-none focus:border-stone-500 focus:ring-2 focus:ring-stone-200 text-stone-900 text-lg transition-all duration-200 placeholder:text-stone-400"
                   autoFocus
                 />
               </div>
