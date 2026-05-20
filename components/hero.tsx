@@ -28,16 +28,16 @@ export function Hero() {
             </p>
             <h1 className="text-balance">
               <span 
-                className="block text-[3.25rem] sm:text-[3.75rem] md:text-[4.5rem] lg:text-[5rem] font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
+                className="block text-[3.5625rem] sm:text-[3.75rem] md:text-[4.5rem] lg:text-[5rem] font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
                 style={{ textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}
               >
                 $4,500. New Quartz Countertops.
               </span>
               <span 
-                className="block text-[2.5rem] sm:text-[3.25rem] md:text-[4rem] lg:text-[4.5rem] font-medium leading-[1.05] tracking-tight text-white/90 mt-2 drop-shadow-lg"
+                className="block text-[2.5rem] sm:text-[3.25rem] md:text-[4rem] lg:text-[4.5rem] font-medium leading-[1.05] tracking-tight text-white/90 mt-5 drop-shadow-lg"
                 style={{ textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}
               >
-                No need to remodel the whole kitchen.
+                No need to rip out the whole kitchen.
               </span>
             </h1>
             <div className="mt-10 border-l-2 border-stone-400/50 pl-5 max-w-md">
@@ -45,7 +45,7 @@ export function Hero() {
                 className="text-base font-normal text-stone-200 leading-relaxed tracking-wide"
                 style={{ textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}
               >
-                Pricing applies to most standard kitchens. Final quote confirmed at your free in-home visit.
+                Pricing applies to most standard kitchens. Final quote confirmed at your free in-home visit!
               </p>
             </div>
 
