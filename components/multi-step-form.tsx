@@ -230,11 +230,8 @@ export function MultiStepForm() {
         <h2 className="text-[1.875rem] md:text-[1.875rem] font-bold text-stone-900 text-center mb-2 tracking-wide">
           Get our $4500 Quartz Package
         </h2>
-        <p className="text-stone-700 text-center text-xl md:text-xl mb-1">
+        <p className="text-stone-700 text-center text-xl md:text-xl">
           Flat Pricing. Most homes qualify for this package! Lets find out!
-        </p>
-        <p className="text-stone-500 text-center text-sm md:text-sm tracking-wide">
-          Fill out our quick form below!
         </p>
       </div>
       
