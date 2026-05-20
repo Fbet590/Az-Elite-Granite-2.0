@@ -1,21 +1,18 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ArrowLeft, Check, Loader2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 type FormData = {
-  projectType: string
   space: string
-  budget: string
-  flexibility: string
   fullName: string
   email: string
   phone: string
 }
 
-const TOTAL_STEPS = 7
+const TOTAL_STEPS = 4
 
 export function MultiStepForm() {
   const [step, setStep] = useState(1)
@@ -24,10 +21,7 @@ export function MultiStepForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isComplete, setIsComplete] = useState(false)
   const [formData, setFormData] = useState<FormData>({
-    projectType: "",
     space: "",
-    budget: "",
-    flexibility: "",
     fullName: "",
     email: "",
     phone: "",
@@ -65,10 +59,10 @@ export function MultiStepForm() {
     
     try {
       const submitData = {
-        projectType: formData.projectType === "new" ? "New Installation" : "Replacing Old Countertops",
+        projectType: "$4500 Quartz Package Inquiry",
         space: formData.space === "kitchen" ? "Kitchen" : formData.space === "bathroom" ? "Bathroom(s)" : "Outdoor / Bar Area",
-        budget: formData.budget === "5k-8k" ? "$5,000 - $8,000" : formData.budget === "10k-18k" ? "$10,000 - $18,000" : "$20,000+",
-        budgetFlexibility: formData.flexibility === "flexible-premium" ? "Yes, I prefer premium quality" : formData.flexibility === "flexible-maybe" ? "Maybe, depends on the options" : "No, I have a fixed budget",
+        budget: "$4,500 Package",
+        budgetFlexibility: "N/A - Fixed Package",
         fullName: formData.fullName,
         email: formData.email,
         phone: formData.phone,
@@ -126,18 +120,12 @@ export function MultiStepForm() {
   const canProceed = () => {
     switch (step) {
       case 1:
-        return formData.projectType !== ""
-      case 2:
         return formData.space !== ""
-      case 3:
-        return formData.budget !== ""
-      case 4:
-        return formData.flexibility !== ""
-      case 5:
+      case 2:
         return formData.fullName.trim() !== ""
-      case 6:
+      case 3:
         return formData.email.trim() !== "" && formData.email.includes("@")
-      case 7:
+      case 4:
         return formData.phone.trim() !== ""
       default:
         return false
@@ -216,7 +204,7 @@ export function MultiStepForm() {
 
   if (isComplete) {
     return (
-      <div className="bg-card/95 backdrop-blur-sm border border-border rounded-2xl shadow-2xl p-8 md:p-10 text-center">
+      <div className="bg-white border-4 border-accent rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] p-8 md:p-10 text-center ring-2 ring-accent/20">
         <div className="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6 animate-bounce-in">
           <Check className="w-10 h-10 text-accent" />
         </div>
@@ -231,8 +219,21 @@ export function MultiStepForm() {
   }
 
   return (
-    <div className="bg-card/95 backdrop-blur-sm border border-border rounded-2xl shadow-2xl overflow-hidden">
-      {/* Header with progress */}
+    <div className="bg-white border-4 border-accent rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] overflow-hidden ring-2 ring-accent/20">
+      {/* Header with headline and progress */}
+      <div className="bg-accent px-6 py-6 border-b border-accent">
+        <h2 className="text-xl md:text-2xl font-bold text-accent-foreground text-center mb-2">
+          Get our $4500 Quartz Package
+        </h2>
+        <p className="text-accent-foreground/90 text-center text-sm md:text-base mb-1">
+          Flat Pricing. Most homes qualify for this package! Lets find out!
+        </p>
+        <p className="text-accent-foreground/80 text-center text-xs md:text-sm">
+          Fill out our quick form below!
+        </p>
+      </div>
+      
+      {/* Progress bar section */}
       <div className="bg-secondary/50 px-6 py-4 border-b border-border">
         <div className="flex items-center justify-between text-sm mb-3">
           <span className="font-medium text-foreground">Free Estimate</span>
@@ -244,7 +245,7 @@ export function MultiStepForm() {
             <div
               key={i}
               className={cn(
-                "h-1.5 rounded-full transition-all duration-500",
+                "h-2 rounded-full transition-all duration-500",
                 i < step 
                   ? "bg-accent flex-1" 
                   : i === step - 1 
@@ -257,40 +258,10 @@ export function MultiStepForm() {
       </div>
 
       {/* Form content */}
-      <div ref={containerRef} className="p-6 md:p-8 min-h-[340px] relative overflow-hidden">
+      <div ref={containerRef} className="p-6 md:p-8 min-h-[300px] relative overflow-hidden">
         <div className={cn("transition-all duration-300", getSlideAnimation())}>
-          {/* Step 1: Project Type */}
+          {/* Step 1: Space */}
           {step === 1 && (
-            <div className="space-y-5">
-              <div>
-                <h3 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-2">
-                  What type of project are you planning?
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  Select the option that best describes your project
-                </p>
-              </div>
-              <div className="space-y-3">
-                <OptionButton
-                  label="New Installation"
-                  value="new"
-                  selected={formData.projectType === "new"}
-                  onClick={() => handleOptionSelect("projectType", "new")}
-                  icon={<span className="text-lg">+</span>}
-                />
-                <OptionButton
-                  label="Replacing Old Countertops"
-                  value="replacement"
-                  selected={formData.projectType === "replacement"}
-                  onClick={() => handleOptionSelect("projectType", "replacement")}
-                  icon={<span className="text-lg">↻</span>}
-                />
-              </div>
-            </div>
-          )}
-
-          {/* Step 2: Space */}
-          {step === 2 && (
             <div className="space-y-5">
               <div>
                 <h3 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-2">
@@ -326,82 +297,8 @@ export function MultiStepForm() {
             </div>
           )}
 
-          {/* Step 3: Budget */}
-          {step === 3 && (
-            <div className="space-y-5">
-              <div>
-                <h3 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-2">
-                  What&apos;s your approximate budget?
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  This helps us recommend the best options for you
-                </p>
-              </div>
-              <div className="space-y-3">
-                <OptionButton
-                  label="$5,000 - $8,000"
-                  value="5k-8k"
-                  selected={formData.budget === "5k-8k"}
-                  onClick={() => handleOptionSelect("budget", "5k-8k")}
-                  icon={<span className="text-sm font-bold">$</span>}
-                />
-                <OptionButton
-                  label="$10,000 - $18,000"
-                  value="10k-18k"
-                  selected={formData.budget === "10k-18k"}
-                  onClick={() => handleOptionSelect("budget", "10k-18k")}
-                  icon={<span className="text-sm font-bold">$$</span>}
-                />
-                <OptionButton
-                  label="$20,000+"
-                  value="20k+"
-                  selected={formData.budget === "20k+"}
-                  onClick={() => handleOptionSelect("budget", "20k+")}
-                  icon={<span className="text-sm font-bold">$$$</span>}
-                />
-              </div>
-            </div>
-          )}
-
-          {/* Step 4: Budget Flexibility */}
-          {step === 4 && (
-            <div className="space-y-5">
-              <div>
-                <h3 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-2">
-                  Are you flexible with your budget?
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  Understanding your flexibility helps us present the right options
-                </p>
-              </div>
-              <div className="space-y-3">
-                <OptionButton
-                  label="Yes, I prefer premium quality"
-                  value="flexible-premium"
-                  selected={formData.flexibility === "flexible-premium"}
-                  onClick={() => handleOptionSelect("flexibility", "flexible-premium")}
-                  icon={<span className="text-lg">★</span>}
-                />
-                <OptionButton
-                  label="Maybe, depends on the options"
-                  value="flexible-maybe"
-                  selected={formData.flexibility === "flexible-maybe"}
-                  onClick={() => handleOptionSelect("flexibility", "flexible-maybe")}
-                  icon={<span className="text-lg">≈</span>}
-                />
-                <OptionButton
-                  label="No, I have a fixed budget"
-                  value="fixed"
-                  selected={formData.flexibility === "fixed"}
-                  onClick={() => handleOptionSelect("flexibility", "fixed")}
-                  icon={<span className="text-lg">=</span>}
-                />
-              </div>
-            </div>
-          )}
-
-          {/* Step 5: Full Name */}
-          {step === 5 && (
+          {/* Step 2: Full Name */}
+          {step === 2 && (
             <div className="space-y-5">
               <div>
                 <h3 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-2">
@@ -425,8 +322,8 @@ export function MultiStepForm() {
             </div>
           )}
 
-          {/* Step 6: Email */}
-          {step === 6 && (
+          {/* Step 3: Email */}
+          {step === 3 && (
             <div className="space-y-5">
               <div>
                 <h3 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-2">
@@ -450,8 +347,8 @@ export function MultiStepForm() {
             </div>
           )}
 
-          {/* Step 7: Phone */}
-          {step === 7 && (
+          {/* Step 4: Phone */}
+          {step === 4 && (
             <div className="space-y-5">
               <div>
                 <h3 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-2">
