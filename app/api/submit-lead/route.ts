@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server"
 
+const LEAD_CONNECTOR_WEBHOOK = "https://services.leadconnectorhq.com/hooks/NPdnad9F1iKmofsmCJ1l/webhook-trigger/GXzefzp1ntL07TbhnYRl"
+
 export async function POST(request: Request) {
   try {
     const data = await request.json()
     
-    // Log form submission (can be connected to your preferred CRM/webhook later)
-    console.log("Lead form submission:", JSON.stringify({
+    const payload = {
       projectType: data.projectType,
       space: data.space,
       budget: data.budget,
@@ -15,9 +16,24 @@ export async function POST(request: Request) {
       phone: data.phone,
       submittedAt: new Date().toISOString(),
       source: "AZ ELITE Granite Website"
-    }, null, 2))
+    }
 
-    // Return success - integrate with your preferred CRM/email service here
+    // Log form submission
+    console.log("Lead form submission:", JSON.stringify(payload, null, 2))
+
+    // Send to Lead Connector webhook
+    const webhookResponse = await fetch(LEAD_CONNECTOR_WEBHOOK, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+
+    if (!webhookResponse.ok) {
+      console.error("Lead Connector webhook error:", webhookResponse.status, await webhookResponse.text())
+    }
+
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error("API route error:", error)
