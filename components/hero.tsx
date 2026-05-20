@@ -28,7 +28,7 @@ export function Hero() {
             </p>
             <h1 className="text-balance">
               <span 
-                className="block text-[2.75rem] sm:text-[3.25rem] md:text-[4rem] lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
+                className="block text-[3rem] sm:text-[3.5rem] md:text-[4.25rem] lg:text-[4.75rem] font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
                 style={{ textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}
               >
                 $4,500. New Quartz Countertops.
