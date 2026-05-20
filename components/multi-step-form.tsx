@@ -160,11 +160,11 @@ export function MultiStepForm() {
       type="button"
       onClick={onClick}
       className={cn(
-        "w-full p-5 text-left border-2 rounded-xl transition-all duration-300 transform",
-        "hover:scale-[1.02] hover:shadow-lg active:scale-[0.98]",
+        "w-full p-5 text-left border rounded-xl transition-all duration-300 transform",
+        "hover:scale-[1.02] active:scale-[0.98]",
         selected
-          ? "border-accent bg-accent/10 shadow-md ring-2 ring-accent/20"
-          : "border-border bg-card hover:border-accent/50 hover:bg-accent/5"
+          ? "border-stone-700 bg-stone-800/50 shadow-lg"
+          : "border-stone-600/30 bg-stone-800/20 hover:border-stone-500/50 hover:bg-stone-800/40"
       )}
     >
       <div className="flex items-center justify-between gap-4">
@@ -172,20 +172,20 @@ export function MultiStepForm() {
           {icon && (
             <div className={cn(
               "w-10 h-10 rounded-lg flex items-center justify-center transition-colors",
-              selected ? "bg-accent text-accent-foreground" : "bg-secondary text-muted-foreground"
+              selected ? "bg-stone-700 text-white" : "bg-stone-800/50 text-stone-400"
             )}>
               {icon}
             </div>
           )}
-          <span className="font-medium text-foreground">{label}</span>
+          <span className="font-medium text-white/90">{label}</span>
         </div>
         <div className={cn(
           "w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300",
           selected 
-            ? "border-accent bg-accent scale-100" 
-            : "border-muted-foreground/30 scale-90"
+            ? "border-white bg-white scale-100" 
+            : "border-stone-500/50 scale-90"
         )}>
-          {selected && <Check className="w-4 h-4 text-accent-foreground" />}
+          {selected && <Check className="w-4 h-4 text-stone-900" />}
         </div>
       </div>
     </button>
@@ -204,40 +204,46 @@ export function MultiStepForm() {
 
   if (isComplete) {
     return (
-      <div className="bg-white border-4 border-accent rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] p-8 md:p-10 text-center ring-2 ring-accent/20">
-        <div className="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6 animate-bounce-in">
-          <Check className="w-10 h-10 text-accent" />
+      <div className="relative bg-gradient-to-b from-stone-900/95 via-stone-900/90 to-stone-950/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-8 md:p-10 text-center">
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+        <div className="relative">
+          <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6 animate-bounce-in">
+            <Check className="w-10 h-10 text-white" />
+          </div>
+          <h3 className="font-serif text-2xl font-medium text-white mb-3">
+            Thank You, {formData.fullName.split(" ")[0]}!
+          </h3>
+          <p className="text-stone-300 leading-relaxed">
+            We&apos;ve received your request. Our team will contact you within 24 hours to schedule your free consultation.
+          </p>
         </div>
-        <h3 className="font-serif text-2xl font-medium text-foreground mb-3">
-          Thank You, {formData.fullName.split(" ")[0]}!
-        </h3>
-        <p className="text-muted-foreground leading-relaxed">
-          We&apos;ve received your request. Our team will contact you within 24 hours to schedule your free consultation.
-        </p>
       </div>
     )
   }
 
   return (
-    <div className="bg-white border-4 border-accent rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] overflow-hidden ring-2 ring-accent/20">
-      {/* Header with headline and progress */}
-      <div className="bg-accent px-6 py-6 border-b border-accent">
-        <h2 className="text-2xl md:text-2xl font-bold text-accent-foreground text-center mb-2">
+    <div className="relative bg-gradient-to-b from-stone-900/95 via-stone-900/90 to-stone-950/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
+      {/* Elegant gradient shine effect */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+      
+      {/* Header with headline */}
+      <div className="relative border-b border-white/10 px-6 py-6">
+        <h2 className="text-2xl md:text-2xl font-light text-white text-center mb-2 tracking-wide">
           Get our $4500 Quartz Package
         </h2>
-        <p className="text-accent-foreground/90 text-center text-base md:text-base mb-1">
+        <p className="text-stone-300 text-center text-base md:text-base mb-1 font-light">
           Flat Pricing. Most homes qualify for this package! Lets find out!
         </p>
-        <p className="text-accent-foreground/80 text-center text-sm md:text-sm">
+        <p className="text-stone-400 text-center text-sm md:text-sm font-light tracking-wide">
           Fill out our quick form below!
         </p>
       </div>
       
       {/* Progress bar section */}
-      <div className="bg-secondary/50 px-6 py-4 border-b border-border">
+      <div className="relative px-6 py-4 border-b border-white/5">
         <div className="flex items-center justify-between text-sm mb-3">
-          <span className="font-medium text-foreground">Free Estimate</span>
-          <span className="text-muted-foreground">Step {step} of {TOTAL_STEPS}</span>
+          <span className="font-light text-white/80 tracking-wide">Free Estimate</span>
+          <span className="text-stone-400 font-light">Step {step} of {TOTAL_STEPS}</span>
         </div>
         {/* Progress dots */}
         <div className="flex items-center gap-2">
@@ -245,12 +251,12 @@ export function MultiStepForm() {
             <div
               key={i}
               className={cn(
-                "h-2 rounded-full transition-all duration-500",
+                "h-1 rounded-full transition-all duration-500",
                 i < step 
-                  ? "bg-accent flex-1" 
+                  ? "bg-white flex-1" 
                   : i === step - 1 
-                    ? "bg-accent/50 flex-1" 
-                    : "bg-border flex-1"
+                    ? "bg-white/30 flex-1" 
+                    : "bg-white/10 flex-1"
               )}
             />
           ))}
@@ -258,16 +264,16 @@ export function MultiStepForm() {
       </div>
 
       {/* Form content */}
-      <div ref={containerRef} className="p-6 md:p-8 min-h-[300px] relative overflow-hidden">
+      <div ref={containerRef} className="relative p-6 md:p-8 min-h-[300px] overflow-hidden">
         <div className={cn("transition-all duration-300", getSlideAnimation())}>
           {/* Step 1: Space */}
           {step === 1 && (
             <div className="space-y-5">
               <div>
-                <h3 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-2">
+                <h3 className="font-serif text-xl md:text-2xl font-light text-white mb-2 tracking-wide">
                   What space needs countertops?
                 </h3>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-stone-400 text-sm font-light">
                   Select the area where you need countertops installed
                 </p>
               </div>
@@ -301,10 +307,10 @@ export function MultiStepForm() {
           {step === 2 && (
             <div className="space-y-5">
               <div>
-                <h3 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-2">
+                <h3 className="font-serif text-xl md:text-2xl font-light text-white mb-2 tracking-wide">
                   What&apos;s your full name?
                 </h3>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-stone-400 text-sm font-light">
                   We&apos;ll use this to personalize your consultation
                 </p>
               </div>
@@ -315,7 +321,7 @@ export function MultiStepForm() {
                   onChange={(e) => updateField("fullName", e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && canProceed() && nextStep()}
                   placeholder="Enter your full name"
-                  className="w-full px-5 py-4 bg-background border-2 border-border rounded-xl focus:outline-none focus:border-accent focus:ring-4 focus:ring-accent/10 text-foreground text-lg transition-all duration-200"
+                  className="w-full px-5 py-4 bg-stone-800/30 border border-white/10 rounded-xl focus:outline-none focus:border-white/30 focus:ring-2 focus:ring-white/10 text-white text-lg transition-all duration-200 placeholder:text-stone-500"
                   autoFocus
                 />
               </div>
@@ -326,10 +332,10 @@ export function MultiStepForm() {
           {step === 3 && (
             <div className="space-y-5">
               <div>
-                <h3 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-2">
+                <h3 className="font-serif text-xl md:text-2xl font-light text-white mb-2 tracking-wide">
                   What&apos;s your email address?
                 </h3>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-stone-400 text-sm font-light">
                   We&apos;ll send your estimate details here
                 </p>
               </div>
@@ -340,7 +346,7 @@ export function MultiStepForm() {
                   onChange={(e) => updateField("email", e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && canProceed() && nextStep()}
                   placeholder="your@email.com"
-                  className="w-full px-5 py-4 bg-background border-2 border-border rounded-xl focus:outline-none focus:border-accent focus:ring-4 focus:ring-accent/10 text-foreground text-lg transition-all duration-200"
+                  className="w-full px-5 py-4 bg-stone-800/30 border border-white/10 rounded-xl focus:outline-none focus:border-white/30 focus:ring-2 focus:ring-white/10 text-white text-lg transition-all duration-200 placeholder:text-stone-500"
                   autoFocus
                 />
               </div>
@@ -351,10 +357,10 @@ export function MultiStepForm() {
           {step === 4 && (
             <div className="space-y-5">
               <div>
-                <h3 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-2">
+                <h3 className="font-serif text-xl md:text-2xl font-light text-white mb-2 tracking-wide">
                   What&apos;s your phone number?
                 </h3>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-stone-400 text-sm font-light">
                   Our team will call to schedule your free consultation
                 </p>
               </div>
@@ -365,7 +371,7 @@ export function MultiStepForm() {
                   onChange={(e) => updateField("phone", e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && canProceed() && handleSubmit()}
                   placeholder="(555) 123-4567"
-                  className="w-full px-5 py-4 bg-background border-2 border-border rounded-xl focus:outline-none focus:border-accent focus:ring-4 focus:ring-accent/10 text-foreground text-lg transition-all duration-200"
+                  className="w-full px-5 py-4 bg-stone-800/30 border border-white/10 rounded-xl focus:outline-none focus:border-white/30 focus:ring-2 focus:ring-white/10 text-white text-lg transition-all duration-200 placeholder:text-stone-500"
                   autoFocus
                 />
               </div>
@@ -375,15 +381,15 @@ export function MultiStepForm() {
       </div>
 
       {/* Navigation */}
-      <div className="px-6 md:px-8 pb-6 md:pb-8">
-        <div className="flex justify-between pt-4 border-t border-border">
+      <div className="relative px-6 md:px-8 pb-6 md:pb-8">
+        <div className="flex justify-between pt-4 border-t border-white/5">
           {step > 1 ? (
             <Button
               type="button"
               variant="ghost"
               onClick={prevStep}
               disabled={isAnimating}
-              className="px-4 text-muted-foreground hover:text-foreground"
+              className="px-4 text-stone-400 hover:text-white hover:bg-white/5"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back
@@ -397,7 +403,7 @@ export function MultiStepForm() {
               type="button"
               onClick={nextStep}
               disabled={!canProceed() || isAnimating}
-              className="px-6 bg-accent text-accent-foreground hover:bg-accent/90 disabled:opacity-50 shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30 transition-all duration-200"
+              className="px-6 bg-white text-stone-900 hover:bg-white/90 disabled:opacity-50 shadow-lg transition-all duration-200 font-medium"
             >
               Continue
               <ArrowRight className="w-4 h-4 ml-2" />
@@ -407,7 +413,7 @@ export function MultiStepForm() {
               type="button"
               onClick={handleSubmit}
               disabled={!canProceed() || isSubmitting}
-              className="px-6 bg-accent text-accent-foreground hover:bg-accent/90 disabled:opacity-50 shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30 transition-all duration-200"
+              className="px-6 bg-white text-stone-900 hover:bg-white/90 disabled:opacity-50 shadow-lg transition-all duration-200 font-medium"
             >
               {isSubmitting ? (
                 <>
