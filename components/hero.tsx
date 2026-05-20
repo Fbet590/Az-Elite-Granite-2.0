@@ -27,10 +27,13 @@ export function Hero() {
               Arizona&apos;s Premier Countertop Experts
             </p>
             <h1 className="text-[2.5rem] sm:text-[3.25rem] md:text-[4rem] lg:text-[4.5rem] font-bold leading-[1.1] tracking-tight text-foreground text-balance">
-              Exquisite Surfaces Meet Expert Craftsmanship
+              $4,500. New Quartz Countertops.
+              <br />
+              <br />
+              No need to remodel the whole kitchen.
             </h1>
             <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-md">
-              Transform your kitchen and bathroom with premium countertops, installed by Arizona&apos;s most trusted craftsmen.
+              Please keep in mind, this package WILL NOT apply to all homes.
             </p>
 
             {/* Stats */}
