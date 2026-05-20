@@ -34,7 +34,7 @@ export function Hero() {
             </h1>
             <div className="mt-8 bg-accent/15 border-l-4 border-accent px-5 py-4 rounded-r-lg max-w-md">
               <p className="text-base font-semibold text-foreground leading-relaxed">
-                Please keep in mind, some homes WILL NOT qualify due to plumbing complexity, difficulty of access or kitchen placement
+                Pricing applies to most standard kitchens. Final quote confirmed at your free in-home visit!
               </p>
             </div>
 
