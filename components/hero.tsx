@@ -32,9 +32,11 @@ export function Hero() {
               <br />
               No need to remodel the whole kitchen.
             </h1>
-            <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-md">
-              Please keep in mind, this package DOES NOT apply to all homes.
-            </p>
+            <div className="mt-8 bg-accent/15 border-l-4 border-accent px-5 py-4 rounded-r-lg max-w-md">
+              <p className="text-base font-semibold text-foreground leading-relaxed">
+                Please keep in mind, this package DOES NOT apply to all homes.
+              </p>
+            </div>
 
             {/* Stats */}
             <div className="mt-12 grid grid-cols-3 gap-8 border-t border-border/50 pt-8">
