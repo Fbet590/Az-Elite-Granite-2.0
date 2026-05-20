@@ -222,13 +222,13 @@ export function MultiStepForm() {
     <div className="bg-white border-4 border-accent rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] overflow-hidden ring-2 ring-accent/20">
       {/* Header with headline and progress */}
       <div className="bg-accent px-6 py-6 border-b border-accent">
-        <h2 className="text-xl md:text-2xl font-bold text-accent-foreground text-center mb-2">
+        <h2 className="text-2xl md:text-2xl font-bold text-accent-foreground text-center mb-2">
           Get our $4500 Quartz Package
         </h2>
-        <p className="text-accent-foreground/90 text-center text-sm md:text-base mb-1">
+        <p className="text-accent-foreground/90 text-center text-base md:text-base mb-1">
           Flat Pricing. Most homes qualify for this package! Lets find out!
         </p>
-        <p className="text-accent-foreground/80 text-center text-xs md:text-sm">
+        <p className="text-accent-foreground/80 text-center text-sm md:text-sm">
           Fill out our quick form below!
         </p>
       </div>
