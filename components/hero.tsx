@@ -45,7 +45,7 @@ export function Hero() {
                 className="text-base font-normal text-stone-200 leading-relaxed tracking-wide"
                 style={{ textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}
               >
-                Pricing applies to most standard kitchens. Final quote confirmed at your free in-home visit.
+                Pricing applies to most standard kitchens. Final quote confirmed at your free in-home visit!
               </p>
             </div>
 
